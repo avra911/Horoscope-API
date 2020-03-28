@@ -16,7 +16,7 @@ class Horoscope:
         date_utc = datetime.now(timezone.utc)
         date_local = str(date_utc.astimezone()).split(' ')[0]
         horoscope = str(tree.xpath("//*[@id=\"postData\"]/div[2]/div[1]/p/text()"))
-        horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("[\"", "").replace("\"]", "").replace("[\'", "").replace("\']", "")
+        horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("']", "").replace("['", "").replace("[\'", "").replace("\']", "")
         
         dict = {
             'data': date_local,
@@ -35,8 +35,8 @@ class Horoscope:
         week = week.split(sunsign.capitalize())[-1]
         week = week.replace("']", "").replace("['", "")
         horoscope = str(tree.xpath("//*[@id=\"postData\"]/div/div[1]/p/text()"))
-        horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("']", "").replace("['", "")
-
+        horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("']", "").replace("['", "").replace("[\'", "").replace("\']", "")
+        
         dict = {
             'sapt': week,
             'horoscope': horoscope,
@@ -54,7 +54,7 @@ class Horoscope:
         month = month.split('luna')[-1]
         month = month.replace("']", "").replace("['", "")
         horoscope = str(tree.xpath("//*[@id=\"postData\"]/div/div[1]/p/text()"))
-        horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("']", "").replace("['", "")
+        horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("']", "").replace("['", "").replace("[\'", "").replace("\']", "")
         
         dict = {
             'luna': month,
@@ -74,7 +74,8 @@ class Horoscope:
         year = year.replace("']", "").replace("['", "")
         horoscope = str(tree.xpath(
             "//*[@id=\"daily\"]/div/div[1]/div[2]/p[1]/text()"))
-        horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("']", "").replace("['", "")
+        horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("']", "").replace("['", "").replace("[\'", "").replace("\']", "")
+        
         dict = {
             'an': year,
             'horoscope': horoscope,
