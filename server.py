@@ -28,7 +28,7 @@ def index_route () :
 @app.route ('/horoscop/azi/<sunsign>', methods=['GET'])
 def today_horoscope_route (sunsign) :
 	result = dict (Horoscope.get_todays_horoscope (sunsign))
-	return jsonify (date=result['date'],
+	return jsonify (date=result['data'],
 			sunsign=result['sunsign'],
 			horoscope=result['horoscope'])
 					
