@@ -19,7 +19,7 @@ class Horoscope:
         horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("[\"", "").replace("\"]", "").replace("[\'", "").replace("\']", "")
         
         dict = {
-            'date': date_local,
+            'data': date_local,
             'horoscope': horoscope,
             'sunsign': sunsign
         }
@@ -38,7 +38,7 @@ class Horoscope:
         horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("']", "").replace("['", "")
 
         dict = {
-            'week': week,
+            'sapt': week,
             'horoscope': horoscope,
             'sunsign': sunsign
         }
@@ -57,7 +57,7 @@ class Horoscope:
         horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("']", "").replace("['", "")
         
         dict = {
-            'month': month,
+            'luna': month,
             'horoscope': horoscope,
             'sunsign': sunsign
         }
@@ -76,7 +76,7 @@ class Horoscope:
             "//*[@id=\"daily\"]/div/div[1]/div[2]/p[1]/text()"))
         horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("']", "").replace("['", "")
         dict = {
-            'year': year,
+            'an': year,
             'horoscope': horoscope,
             'sunsign': sunsign
         }

@@ -25,7 +25,7 @@ def index_route () :
 ###########################################
 
 #Todays' Horoscope
-@app.route ('/horoscope/today/<sunsign>', methods=['GET'])
+@app.route ('/horoscop/azi/<sunsign>', methods=['GET'])
 def today_horoscope_route (sunsign) :
 	result = dict (Horoscope.get_todays_horoscope (sunsign))
 	return jsonify (date=result['date'],
@@ -34,7 +34,7 @@ def today_horoscope_route (sunsign) :
 					
 
 #Current Week Horoscope
-@app.route ('/horoscope/week/<sunsign>', methods=['GET'])
+@app.route ('/horoscop/sapt/<sunsign>', methods=['GET'])
 def weekly_horoscope_route (sunsign) :
 	result = dict (Horoscope.get_weekly_horoscope (sunsign))
 	return jsonify (week=result['week'],
@@ -42,7 +42,7 @@ def weekly_horoscope_route (sunsign) :
 			horoscope=result['horoscope'])
 
 #Current Month Horoscope
-@app.route ('/horoscope/month/<sunsign>', methods=['GET'])
+@app.route ('/horoscop/luna/<sunsign>', methods=['GET'])
 def monthly_horoscope_route (sunsign) :
 	result = dict (Horoscope.get_monthly_horoscope (sunsign))
 	return jsonify (month=result['month'],
@@ -50,7 +50,7 @@ def monthly_horoscope_route (sunsign) :
 			horoscope=result['horoscope'])
 
 #Current Year Horoscope
-@app.route ('/horoscope/year/<sunsign>', methods=['GET'])
+@app.route ('/horoscop/an/<sunsign>', methods=['GET'])
 def yearly_horoscope_route (sunsign) :
 	result = dict (Horoscope.get_yearly_horoscope (sunsign))
 	return jsonify (year=result['year'],
