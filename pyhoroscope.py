@@ -66,14 +66,12 @@ class Horoscope:
 
     @staticmethod
     def get_yearly_horoscope(sunsign):
-        url = "http://www.ganeshaspeaks.com/horoscopes/yearly-horoscope/" + sunsign
+        now = datetime.datetime.now()
+        year = now.year
+        url = "https://www.horoscop.ro/horoscop-" + sunsign + "-" + year
         response = requests.get(url)
         tree = html.fromstring(response.content)
-        year = str(tree.xpath(
-            "//*[@id=\"daily\"]/div/div[1]/div[1]/div[2]/div/p/text()"))
-        year = year.replace("']", "").replace("['", "")
-        horoscope = str(tree.xpath(
-            "//*[@id=\"daily\"]/div/div[1]/div[2]/p[1]/text()"))
+        horoscope = str(tree.xpath("//*[@id=\"postData\"]/div/div[1]/p/text()"))
         horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("']", "").replace("['", "").replace("[\'", "").replace("\']", "")
         
         dict = {
