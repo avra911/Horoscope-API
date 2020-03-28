@@ -66,7 +66,7 @@ class Horoscope:
 
     @staticmethod
     def get_yearly_horoscope(sunsign):
-        now = datetime.datetime.now()
+        now = datetime.now()
         year = now.year
         url = "https://www.horoscop.ro/horoscop-" + sunsign + "-" + year
         response = requests.get(url)
