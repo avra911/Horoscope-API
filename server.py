@@ -12,11 +12,11 @@ CORS(app)
 @app.route ('/', methods=['GET'])
 def index_route () :
     return jsonify({
-		'author' : 'Tapasweni Pathak',
-		'author_url' : 'http://tapasweni-pathak.github.io/',
-		'base_url' : 'horoscope-api.herokuapp.com',
-	    	'project_name' : 'Horoscope API',
-		'project_url' : 'http://tapasweni-pathak.github.io/Horoscope-API'
+		'author' : 'Razvan',
+		'author_url' : 'http://avra911.github.io/',
+		'base_url' : 'horoscop-zilnic.herokuapp.com',
+		'project_name' : 'Horoscop Zilnic',
+		'project_url' : 'http://avra911.github.io/Horoscope-API'
 	})
 
 
