@@ -15,10 +15,12 @@ class Horoscope:
         tree = html.fromstring(response.content)
         date_utc = datetime.now(timezone.utc)
         date_local = str(date_utc.astimezone()).split(' ')[0]
+        horoscope = str(tree.xpath("//*[@id=\"postData\"]/div[2]/div[1]/p/text()"))
+        horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("[\"", "").replace("\"]", "").replace("[\'", "").replace("\']", "")
         
         dict = {
             'date': date_local,
-            'horoscope': str(tree.xpath("//*[@id=\"postData\"]/div[2]/div[1]/p/text()")),
+            'horoscope': horoscope,
             'sunsign': sunsign
         }
 
@@ -31,7 +33,10 @@ class Horoscope:
         tree = html.fromstring(response.content)
         week = str(tree.xpath("//*[@id=\"postData\"]/h1/text()"))
         week = week.split(sunsign.capitalize())[-1]
+        week = week.replace("']", "").replace("['", "")
         horoscope = str(tree.xpath("//*[@id=\"postData\"]/div/div[1]/p/text()"))
+        horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("']", "").replace("['", "")
+
         dict = {
             'week': week,
             'horoscope': horoscope,
@@ -47,7 +52,10 @@ class Horoscope:
         tree = html.fromstring(response.content)
         month = str(tree.xpath("//*[@id=\"postData\"]/h1/text()"))
         month = month.split('luna')[-1]
+        month = month.replace("']", "").replace("['", "")
         horoscope = str(tree.xpath("//*[@id=\"postData\"]/div/div[1]/p/text()"))
+        horoscope = horoscope.replace("\\n", "").replace("  ", "").replace("']", "").replace("['", "")
+        
         dict = {
             'month': month,
             'horoscope': horoscope,
